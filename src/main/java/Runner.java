@@ -18,11 +18,13 @@ public class Runner {
                 else if (input == 1) {
                     System.out.print("Enter name: ");
                     String name = scanner.next();
+                    System.out.print("Enter surname: ");
+                    String surname = scanner.next();
                     System.out.print("Enter phone: ");
                     String phone = scanner.next();
                     System.out.print("Enter birthday: ");
                     String birthday = scanner.next();
-                    Contact contact = new Contact(name, phone, birthday);
+                    Contact contact = new Contact(name, surname, phone, birthday);
 
                     phonebook.add(contact);
                     consoleDisplay.printContacts(phonebook.getAllContact());
@@ -39,7 +41,7 @@ public class Runner {
                         scanner.next();
                     }
                     int id = scanner.nextInt();
-                    consoleDisplay.printContact(phonebook.get(id));
+                    consoleDisplay.printContact(phonebook.get(id), id);
                     System.out.println("Which field do you want to change?");
                     System.out.println("1 - Name; 2 - Phone; 3 - Birthday; 0 - EXIT");
                     while (!scanner.hasNextInt()){
@@ -53,21 +55,21 @@ public class Runner {
                             String newName = scanner.next();
                             phonebook.get(id).setName(newName);
                             System.out.println("The contact was updated successfully!");
-                            consoleDisplay.printContact(phonebook.get(id));
+                            consoleDisplay.printContact(phonebook.get(id), id);
                             break;
                         } else if (option == 2) {
                             System.out.print("Set new phone: ");
                             String newName = scanner.next();
                             phonebook.get(id).setPhone(newName);
                             System.out.println("The contact was updated successfully!");
-                            consoleDisplay.printContact(phonebook.get(id));
+                            consoleDisplay.printContact(phonebook.get(id), id);
                             break;
                         } else if (option == 3) {
                             System.out.print("Set new birthday: ");
                             String newName = scanner.next();
                             phonebook.get(id).setBirthday(newName);
                             System.out.println("The contact was updated successfully!");
-                            consoleDisplay.printContact(phonebook.get(id));
+                            consoleDisplay.printContact(phonebook.get(id), id);
                             break;
                         } else if (option == 0) {
                             System.out.println("Close Phone Book ;P");
@@ -79,7 +81,7 @@ public class Runner {
                 }else if (input == 4){
                     System.out.print("Enter id: ");
                     int id = scanner.nextInt();
-                    consoleDisplay.printContact(phonebook.get(id));
+                    consoleDisplay.printContact(phonebook.get(id), id);
                 }else if (input == 5) {
                     System.out.println("How do you want to find the contact?");
                     System.out.println("1 - by name; 2 - by first letters; 3 - by last 4 digits of number; 0 - EXIT");

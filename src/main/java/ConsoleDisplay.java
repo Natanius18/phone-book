@@ -6,7 +6,6 @@ public class ConsoleDisplay {
         System.out.println("1 - ADD; 2 - DELETE; 3 - UPDATE; 4 - SHOW; 5 - FIND; 0 - Exit;");
     }
 
-
     public void printContacts(ArrayList<Contact> contacts){
         System.out.println("CONTACTS: ");
         if (contacts.size()==0){
@@ -17,15 +16,16 @@ public class ConsoleDisplay {
             System.out.println("Index: " + index++);
             System.out.println("Name: " + contact.getName());
             System.out.println("Birthday: " + contact.getBirthday());
-            System.out.println("_______________________________________");
+            System.out.println("_____________________________");
         }
     }
 
-    public void printContact(Contact contact){
-        System.out.println("CONTACT: ");
+    public void printContact(Contact contact, int id){
+        System.out.println("CONTACT: " + id);
         System.out.println("Name: " + contact.getName());
+        System.out.println("Surname: " + contact.getSurname());
         System.out.println("Phone: " + contact.getPhone());
         System.out.println("Birthday: " + contact.getBirthday());
-        System.out.println("_______________________________________");
+        System.out.println("_____________________________");
     }
 }
