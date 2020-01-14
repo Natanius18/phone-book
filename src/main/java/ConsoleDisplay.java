@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 public class ConsoleDisplay {
     public void printMenu() {
-
+        System.out.println("Personal phone book");
+        System.out.println("Select number and press ENTER:");
         System.out.println("1 - ADD; 2 - DELETE; 3 - UPDATE; 4 - SHOW; 5 - FIND; 0 - Exit;");
     }
 
