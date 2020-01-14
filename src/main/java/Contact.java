@@ -12,7 +12,8 @@ public class Contact {
     }
 
     public String getName() {
-        return name;
+        String s1 = String.valueOf(name.charAt(0)).toUpperCase();
+        return s1 + name.substring(1);
     }
 
     public void setName(String name) {
@@ -20,7 +21,8 @@ public class Contact {
     }
 
     public String getSurname() {
-        return surname;
+        String s1 = String.valueOf(surname.charAt(0)).toUpperCase();
+        return s1 + surname.substring(1);
     }
 
     public void setSurname(String surname) {

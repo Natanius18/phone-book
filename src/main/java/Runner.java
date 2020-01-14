@@ -43,7 +43,7 @@ public class Runner {
                     int id = scanner.nextInt();
                     consoleDisplay.printContact(phonebook.get(id), id);
                     System.out.println("Which field do you want to change?");
-                    System.out.println("1 - Name; 2 - Phone; 3 - Birthday; 0 - EXIT");
+                    System.out.println("1 - Name; 2 - Surname; 3 - Phone; 4 - Birthday; 0 - EXIT");
                     while (!scanner.hasNextInt()){
                         System.out.println("Write the number of option!");
                         scanner.next();
@@ -57,14 +57,21 @@ public class Runner {
                             System.out.println("The contact was updated successfully!");
                             consoleDisplay.printContact(phonebook.get(id), id);
                             break;
-                        } else if (option == 2) {
+                        }else if (option == 2){
+                            System.out.print("Set new surname: ");
+                            String newName = scanner.next();
+                            phonebook.get(id).setSurname(newName);
+                            System.out.println("The contact was updated successfully!");
+                            consoleDisplay.printContact(phonebook.get(id), id);
+                            break;
+                        } else if (option == 3) {
                             System.out.print("Set new phone: ");
                             String newName = scanner.next();
                             phonebook.get(id).setPhone(newName);
                             System.out.println("The contact was updated successfully!");
                             consoleDisplay.printContact(phonebook.get(id), id);
                             break;
-                        } else if (option == 3) {
+                        } else if (option == 4) {
                             System.out.print("Set new birthday: ");
                             String newName = scanner.next();
                             phonebook.get(id).setBirthday(newName);
