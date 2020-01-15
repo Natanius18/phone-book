@@ -6,7 +6,8 @@ public class Runner {
         ConsoleDisplay consoleDisplay = new ConsoleDisplay();
         Phonebook phonebook = new Phonebook();
         Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNext()){
+        //noinspection InfiniteLoopStatement
+        while (true){
             consoleDisplay.printMenu();
             if (scanner.hasNextInt()){
                 int input = scanner.nextInt();
