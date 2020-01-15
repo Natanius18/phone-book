@@ -6,14 +6,12 @@ public class Runner {
         ConsoleDisplay consoleDisplay = new ConsoleDisplay();
         Phonebook phonebook = new Phonebook();
         Scanner scanner = new Scanner(System.in);
-
-        while (true){
+        while (scanner.hasNext()){
             consoleDisplay.printMenu();
             if (scanner.hasNextInt()){
                 int input = scanner.nextInt();
                 if (input==0){
-                    System.out.println("Close Phone Book ;P");
-                    break;
+                    looser();
                 }
                 else if (input == 1) {
                     System.out.print("Enter name: ");
@@ -79,8 +77,7 @@ public class Runner {
                             consoleDisplay.printContact(phonebook.get(id), id);
                             break;
                         } else if (option == 0) {
-                            System.out.println("Close Phone Book ;P");
-                            return;
+                           looser();
                         }else {
                             System.out.println("1 - Name; 2 - Phone; 3 - Birthday; 0 - EXIT");
                         }
@@ -115,15 +112,19 @@ public class Runner {
                             consoleDisplay.printContacts(filteredContacts);
                         }
                     } else {
-                        System.out.println("Looser! ;P");
-                        break;
+                        looser();
                     }
                 }
             }else {
-                System.out.println("Looser! ;P");
-                break;
+                looser();
             }
         }
-        scanner.close();
     }
+
+    private static void looser() {
+            System.out.println("Close Phone Book ;P");
+            System.exit(0);
+        }
+
+
 }
