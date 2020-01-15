@@ -40,7 +40,7 @@ public class Phonebook {
     public ArrayList<Contact> findByNameStart(String value){
         ArrayList<Contact> result = new ArrayList<>();
         for (Contact contact : contacts){
-            if (contact.getName().startsWith(value)){
+            if (contact.getName().startsWith(String.valueOf(value.charAt(0)).toUpperCase()+ value.substring(1))){
                 result.add(contact);
             }
         }
