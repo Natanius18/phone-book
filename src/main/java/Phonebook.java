@@ -23,7 +23,7 @@ public class Phonebook {
     public ArrayList<Contact> findByName(String name){
         ArrayList<Contact> result = new ArrayList<>();
         for (Contact contact : contacts) {
-            if (contact.getName().equals(name)){
+            if (contact.getName().equals(String.valueOf(name.charAt(0)).toUpperCase()+ name.substring(1))){
                 result.add(contact);
             }
         }
