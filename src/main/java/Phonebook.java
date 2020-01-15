@@ -17,7 +17,14 @@ public class Phonebook {
     }
 
     public void del(int id){
-        contacts.remove(--id);
+        if (contacts.size() < id) {
+            System.out.println("The contact with index " + id + " doesn't exist!");
+            System.out.println("1 - ADD; 2 - DELETE; 3 - UPDATE; 4 - SHOW; 5 - FIND; 0 - Exit;");
+
+        }else {
+            contacts.remove(--id);
+            System.out.println("The contact was deleted successfully!");
+        }
     }
 
     public ArrayList<Contact> findByName(String name){
