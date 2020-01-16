@@ -10,11 +10,11 @@ public class Runner {
         while (true){
             if (scanner.hasNextInt()){
                 int input = scanner.nextInt();
-                if (input==0){
+                if (input== ActionType.EXIT.getIndex()){
                     System.out.println("Close Phone Book ;P");
                     break;
                 }
-                else if (input == 1) {
+                else if (input == ActionType.ADD.getIndex()) {
                     System.out.print("Enter name: ");
                     String name = scanner.next();
                     System.out.print("Enter surname: ");
@@ -29,7 +29,7 @@ public class Runner {
                     consoleDisplay.printMenu();
                     consoleDisplay.printContacts(phonebook.getAllContact());
 
-                }else if (input ==2){
+                }else if (input == ActionType.DELETE.getIndex()){
                     if (phonebook.getAllContact().size()==0){
                         System.out.println("There are no contacts to delete!");
                     }else {
@@ -48,7 +48,7 @@ public class Runner {
                     }
                     consoleDisplay.printMenu();
 
-                }else if (input == 3){
+                }else if (input == ActionType.UPDATE.getIndex()){
                     if (phonebook.getAllContact().size()==0) {
                         System.out.println("There are no contacts to update");
                         consoleDisplay.printMenu();
@@ -110,7 +110,7 @@ public class Runner {
                             }
                         }
                     }
-                }else if (input == 4){
+                }else if (input == ActionType.SHOW.getIndex()){
                     if (phonebook.getAllContact().size()==0) {
                         System.out.println("There are no contacts to show");
                         consoleDisplay.printMenu();
@@ -126,7 +126,7 @@ public class Runner {
                             consoleDisplay.printMenu();
                         }
                     }
-                }else if (input == 5) {
+                }else if (input == ActionType.FIND.getIndex()) {
                     System.out.println("How do you want to find the contact?");
                     System.out.println("1 - by name; 2 - by first letters; 3 - by last 4 digits of number; 0 - EXIT");
                     if (scanner.hasNextInt()) {
