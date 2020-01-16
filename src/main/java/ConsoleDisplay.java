@@ -5,9 +5,6 @@ public class ConsoleDisplay {
         System.out.println("Select number and press ENTER:");
         System.out.println(String.format("%s - ADD; %s - DELETE; %s - UPDATE; %s - SHOW; %s - FIND; %s - Exit",
                 ActionType.ADD.getIndex(), ActionType.DELETE.getIndex(), ActionType.UPDATE.getIndex(), ActionType.SHOW.getIndex(),ActionType.FIND.getIndex(),ActionType.EXIT.getIndex()));
-
-//        System.out.println(ActionType.ADD.getIndex() + " - ADD; " +
-//                " - DELETE; 3 - UPDATE; 4 - SHOW; 5 - FIND; 0 - Exit");
     }
 
     public void printContacts(ArrayList<Contact> contacts){
