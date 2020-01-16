@@ -51,6 +51,7 @@ public class Runner {
                 }else if (input == 3){
                     if (phonebook.getAllContact().size()==0) {
                         System.out.println("There are no contacts to update");
+                        consoleDisplay.printMenu();
                     }else {
                         System.out.print("Enter id of the contact which you want to update: ");
                         while (!scanner.hasNextInt()) {
@@ -100,7 +101,8 @@ public class Runner {
                                     consoleDisplay.printContact(phonebook.get(id), id);
                                     break;
                                 } else if (option == 0) {
-                                    System.out.println("Close phone");
+                                    System.out.println("Close Phone Book ;P");
+                                    return;
                                 } else {
                                     System.out.println("Please, choose one of the given options");
                                     System.out.println("1 - Name; 2 - Phone; 3 - Birthday; 0 - EXIT");
@@ -109,14 +111,20 @@ public class Runner {
                         }
                     }
                 }else if (input == 4){
-                    System.out.print("Enter id: ");
-                    int id = scanner.nextInt();
-                    if (phonebook.getAllContact().size() < id) {
-                        System.out.println("The contact with index " + id + " doesn't exist!");
+                    if (phonebook.getAllContact().size()==0) {
+                        System.out.println("There are no contacts to show");
                         consoleDisplay.printMenu();
-
                     }else {
-                        consoleDisplay.printContact(phonebook.get(id), id);
+                        System.out.print("Enter id: ");
+                        int id = scanner.nextInt();
+                        if (phonebook.getAllContact().size() < id) {
+                            System.out.println("The contact with index " + id + " doesn't exist!");
+                            consoleDisplay.printMenu();
+
+                        } else {
+                            consoleDisplay.printContact(phonebook.get(id), id);
+                            consoleDisplay.printMenu();
+                        }
                     }
                 }else if (input == 5) {
                     System.out.println("How do you want to find the contact?");
@@ -141,6 +149,7 @@ public class Runner {
                             consoleDisplay.printContacts(phonebook.findByPhone(name));
                         }else if (option == 0){
                             System.out.println("Close Phone Book ;P");
+                            return;
                         }
                     } else {
                         System.out.println("You should write number");
