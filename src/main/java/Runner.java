@@ -26,21 +26,28 @@ public class Runner {
                     Contact contact = new Contact(name, surname, phone, birthday);
 
                     phonebook.add(contact);
+                    consoleDisplay.printMenu();
                     consoleDisplay.printContacts(phonebook.getAllContact());
 
                 }else if (input ==2){
                     if (phonebook.getAllContact().size()==0){
                         System.out.println("There are no contacts to delete!");
                     }else {
-                        System.out.print("Enter id: ");
-                        while (!scanner.hasNextInt()) {
-                            System.out.println("Write the index!");
-                            scanner.next();
+                        System.out.println("Write the index of the contact which you want to delete");
+                        while (true) {
+                            if (scanner.hasNextInt()) {
+                                int index = scanner.nextInt();
+                                    phonebook.del(index);
+                                    break;
+
+                            } else {
+                                System.out.println("Please, write the index");
+                                scanner.next();
+                            }
                         }
-                        int id = scanner.nextInt();
-                        phonebook.del(id);
-                        consoleDisplay.printContacts(phonebook.getAllContact());
                     }
+                    consoleDisplay.printMenu();
+
                 }else if (input == 3){
                     if (phonebook.getAllContact().size()==0) {
                         System.out.println("There are no contacts to update");

@@ -27,4 +27,17 @@ public class ConsoleDisplay {
         System.out.println("Birthday: " + contact.getBirthday());
         System.out.println("_____________________________");
     }
+
+    public void printFoundContacts(ArrayList<Contact> contacts){
+        Phonebook phonebook = new Phonebook();
+        System.out.println("CONTACTS: ");
+        if (contacts.size()==0){
+            System.out.println("No contacts found");
+        }
+        for (Contact contact : contacts){
+            System.out.println("Index: " + phonebook.getAllContact().indexOf(contact));
+            System.out.println("Name: " + contact.getName());
+            System.out.println("_____________");
+        }
+    }
 }
