@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 public class ConsoleDisplay {
-    public void printMenu() {
+    public static void printMenu() {
         System.out.println("PERSONAL PHONE BOOK");
         System.out.println("Select number and press ENTER:");
         System.out.println(String.format("%s - ADD; %s - DELETE; %s - UPDATE; %s - SHOW; %s - FIND; %s - Exit",
                 ActionType.ADD.getIndex(), ActionType.DELETE.getIndex(), ActionType.UPDATE.getIndex(), ActionType.SHOW.getIndex(),ActionType.FIND.getIndex(),ActionType.EXIT.getIndex()));
     }
 
-    public void printContacts(ArrayList<Contact> contacts){
+    public static void printContacts(ArrayList<Contact> contacts){
         System.out.println("CONTACTS: ");
         if (contacts.size()==0){
             System.out.println("No contacts found");
@@ -20,7 +20,7 @@ public class ConsoleDisplay {
         }
     }
 
-    public void printContact(Contact contact, int id){
+    public static void printContact(Contact contact, int id){
         System.out.println("CONTACT " + id + ":");
         System.out.println("Name: " + contact.getName());
         System.out.println("Surname: " + contact.getSurname());
@@ -29,16 +29,16 @@ public class ConsoleDisplay {
         System.out.println("_____________________________");
     }
 
-    public void printFoundContacts(ArrayList<Contact> contacts){
-        Phonebook phonebook = new Phonebook();
-        System.out.println("CONTACTS: ");
-        if (contacts.size()==0){
-            System.out.println("No contacts found");
-        }
-        for (Contact contact : contacts){
-            System.out.println("Index: " + phonebook.getAllContact().indexOf(contact));
-            System.out.println("Name: " + contact.getName());
-            System.out.println("_____________");
-        }
-    }
+//    public static void printFoundContacts(ArrayList<Contact> contacts){
+//        Phonebook phonebook = new Phonebook();
+//        System.out.println("CONTACTS: ");
+//        if (contacts.size()==0){
+//            System.out.println("No contacts found");
+//        }
+//        for (Contact contact : contacts){
+//            System.out.println("Index: " + phonebook.getAllContact().indexOf(contact));
+//            System.out.println("Name: " + contact.getName());
+//            System.out.println("_____________");
+//        }
+//    }
 }

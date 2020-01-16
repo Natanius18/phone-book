@@ -2,11 +2,10 @@ import java.util.Scanner;
 
 public class Runner {
     public static void main(String[] args) {
-        ConsoleDisplay consoleDisplay = new ConsoleDisplay();
         Phonebook phonebook = new Phonebook();
         Scanner scanner = new Scanner(System.in);
-        consoleDisplay.printMenu();
 
+        ConsoleDisplay.printMenu();
         while (true){
             if (scanner.hasNextInt()){
                 int input = scanner.nextInt();
@@ -26,8 +25,8 @@ public class Runner {
                     Contact contact = new Contact(name, surname, phone, birthday);
 
                     phonebook.add(contact);
-                    consoleDisplay.printMenu();
-                    consoleDisplay.printContacts(phonebook.getAllContact());
+                    ConsoleDisplay.printMenu();
+                    ConsoleDisplay.printContacts(phonebook.getAllContact());
 
                 }else if (input == ActionType.DELETE.getIndex()){
                     if (phonebook.getAllContact().size()==0){
@@ -46,12 +45,12 @@ public class Runner {
                             }
                         }
                     }
-                    consoleDisplay.printMenu();
+                    ConsoleDisplay.printMenu();
 
                 }else if (input == ActionType.UPDATE.getIndex()){
                     if (phonebook.getAllContact().size()==0) {
                         System.out.println("There are no contacts to update");
-                        consoleDisplay.printMenu();
+                        ConsoleDisplay.printMenu();
                     }else {
                         System.out.print("Enter id of the contact which you want to update: ");
                         while (!scanner.hasNextInt()) {
@@ -61,9 +60,9 @@ public class Runner {
                         int id = scanner.nextInt();
                         if (phonebook.getAllContact().size() < id) {
                             System.out.println("The contact with index " + id + " doesn't exist!");
-                            consoleDisplay.printMenu();
+                            ConsoleDisplay.printMenu();
                         } else {
-                            consoleDisplay.printContact(phonebook.get(id), id);
+                            ConsoleDisplay.printContact(phonebook.get(id), id);
                             System.out.println("Which field do you want to change?");
                             System.out.println("1 - Name; 2 - Surname; 3 - Phone; 4 - Birthday; 0 - EXIT");
                             while (!scanner.hasNextInt()) {
@@ -77,28 +76,28 @@ public class Runner {
                                     String newName = scanner.next();
                                     phonebook.get(id).setName(newName);
                                     System.out.println("The contact was updated successfully!");
-                                    consoleDisplay.printContact(phonebook.get(id), id);
+                                    ConsoleDisplay.printContact(phonebook.get(id), id);
                                     break;
                                 } else if (option == 2) {
                                     System.out.print("Set new surname: ");
                                     String newName = scanner.next();
                                     phonebook.get(id).setSurname(newName);
                                     System.out.println("The contact was updated successfully!");
-                                    consoleDisplay.printContact(phonebook.get(id), id);
+                                    ConsoleDisplay.printContact(phonebook.get(id), id);
                                     break;
                                 } else if (option == 3) {
                                     System.out.print("Set new phone: ");
                                     String newName = scanner.next();
                                     phonebook.get(id).setPhone(newName);
                                     System.out.println("The contact was updated successfully!");
-                                    consoleDisplay.printContact(phonebook.get(id), id);
+                                    ConsoleDisplay.printContact(phonebook.get(id), id);
                                     break;
                                 } else if (option == 4) {
                                     System.out.print("Set new birthday: ");
                                     String newName = scanner.next();
                                     phonebook.get(id).setBirthday(newName);
                                     System.out.println("The contact was updated successfully!");
-                                    consoleDisplay.printContact(phonebook.get(id), id);
+                                    ConsoleDisplay.printContact(phonebook.get(id), id);
                                     break;
                                 } else if (option == 0) {
                                     System.out.println("Close Phone Book ;P");
@@ -110,23 +109,22 @@ public class Runner {
                             }
                         }
                     }
-                }else if (input == ActionType.SHOW.getIndex()){
-                    if (phonebook.getAllContact().size()==0) {
+                }else if (input == ActionType.SHOW.getIndex()) {
+                    if (phonebook.getAllContact().size() == 0) {
                         System.out.println("There are no contacts to show");
-                        consoleDisplay.printMenu();
-                    }else {
+                    } else {
                         System.out.print("Enter id: ");
                         int id = scanner.nextInt();
                         if (phonebook.getAllContact().size() < id) {
                             System.out.println("The contact with index " + id + " doesn't exist!");
-                            consoleDisplay.printMenu();
 
                         } else {
-                            consoleDisplay.printContact(phonebook.get(id), id);
-                            consoleDisplay.printMenu();
+                            ConsoleDisplay.printContact(phonebook.get(id), id);
                         }
                     }
-                }else if (input == ActionType.FIND.getIndex()) {
+                    ConsoleDisplay.printMenu();
+                }
+                else if (input == ActionType.FIND.getIndex()) {
                     System.out.println("How do you want to find the contact?");
                     System.out.println("1 - by name; 2 - by first letters; 3 - by last 4 digits of number; 0 - EXIT");
                     if (scanner.hasNextInt()) {
@@ -134,11 +132,11 @@ public class Runner {
                         if (option == 1) {
                             System.out.print("Enter name: ");
                             String name = scanner.next();
-                            consoleDisplay.printContacts(phonebook.findByName(name));
+                            ConsoleDisplay.printContacts(phonebook.findByName(name));
                         }else if (option == 2){
                             System.out.print("Enter first letters: ");
                             String name = scanner.next();
-                            consoleDisplay.printContacts(phonebook.findByNameStart(name));
+                            ConsoleDisplay.printContacts(phonebook.findByNameStart(name));
                         }else if (option == 3){
                             System.out.print("Enter last 4 digits of number: ");
                             String name = scanner.next();
@@ -146,7 +144,7 @@ public class Runner {
                                 System.out.println("You should write 4 digits");
                                 name = scanner.next();
                             }
-                            consoleDisplay.printContacts(phonebook.findByPhone(name));
+                            ConsoleDisplay.printContacts(phonebook.findByPhone(name));
                         }else if (option == 0){
                             System.out.println("Close Phone Book ;P");
                             return;
