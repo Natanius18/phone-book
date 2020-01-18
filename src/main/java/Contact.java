@@ -44,4 +44,8 @@ public class Contact {
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
+
+    public String toString(){
+        return ("Name: " + getName() + "; surname: " + getSurname() + "; phone: " + getPhone() + "; birthday: " + getBirthday());
+    }
 }

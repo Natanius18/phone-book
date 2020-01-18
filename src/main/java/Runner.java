@@ -133,25 +133,29 @@ public class Runner {
                             System.out.print("Enter name: ");
                             String name = scanner.next();
                             ConsoleDisplay.printContacts(phonebook.findByName(name));
-                        }else if (option == 2){
+                        } else if (option == 2) {
                             System.out.print("Enter first letters: ");
                             String name = scanner.next();
                             ConsoleDisplay.printContacts(phonebook.findByNameStart(name));
-                        }else if (option == 3){
+                        } else if (option == 3) {
                             System.out.print("Enter last 4 digits of number: ");
                             String name = scanner.next();
-                            while (name.length() != 4){
+                            while (name.length() != 4) {
                                 System.out.println("You should write 4 digits");
                                 name = scanner.next();
                             }
                             ConsoleDisplay.printContacts(phonebook.findByPhone(name));
-                        }else if (option == 0){
+                        } else if (option == 0) {
                             System.out.println("Close Phone Book ;P");
                             return;
                         }
                     } else {
                         System.out.println("You should write number");
                     }
+                }else if (input == ActionType.SAVE.getIndex()){
+                    FileController.saveToFile(phonebook.getAllContact());
+                    System.out.println("Your contacts were saved successfully!");
+                    ConsoleDisplay.printMenu();
                 }else {
                     System.out.println("You should write number from 0 to 5");
 
