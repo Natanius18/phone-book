@@ -4,7 +4,6 @@ public class Runner {
     public static void main(String[] args) {
         Phonebook phonebook = new Phonebook();
         Scanner scanner = new Scanner(System.in);
-
         ConsoleDisplay.printMenu();
         while (true){
             if (scanner.hasNextInt()){
@@ -64,48 +63,49 @@ public class Runner {
                         } else {
                             ConsoleDisplay.printContact(phonebook.get(id), id);
                             System.out.println("Which field do you want to change?");
-                            System.out.println("1 - Name; 2 - Surname; 3 - Phone; 4 - Birthday; 0 - EXIT");
+                            System.out.println(String.format("%s - Name; %s - Surname; %s - Phone; %s - Birthday; %s - EXIT",
+                                    ActionType.Name.getIndex(), ActionType.Surname.getIndex(), ActionType.Phone.getIndex(), ActionType.Birthday.getIndex(), ActionType.EXIT.getIndex()));
                             while (!scanner.hasNextInt()) {
                                 System.out.println("Write the number of option!");
                                 scanner.next();
                             }
                             while (scanner.hasNextInt()) {
                                 int option = scanner.nextInt();
-                                if (option == 1) {
+                                if (option == ActionType.Name.getIndex()) {
                                     System.out.print("Set new name: ");
                                     String newName = scanner.next();
                                     phonebook.get(id).setName(newName);
                                     System.out.println("The contact was updated successfully!");
                                     ConsoleDisplay.printContact(phonebook.get(id), id);
                                     break;
-                                } else if (option == 2) {
+                                } else if (option == ActionType.Surname.getIndex()) {
                                     System.out.print("Set new surname: ");
                                     String newName = scanner.next();
                                     phonebook.get(id).setSurname(newName);
                                     System.out.println("The contact was updated successfully!");
                                     ConsoleDisplay.printContact(phonebook.get(id), id);
                                     break;
-                                } else if (option == 3) {
+                                } else if (option == ActionType.Phone.getIndex()) {
                                     System.out.print("Set new phone: ");
                                     String newName = scanner.next();
                                     phonebook.get(id).setPhone(newName);
                                     System.out.println("The contact was updated successfully!");
                                     ConsoleDisplay.printContact(phonebook.get(id), id);
                                     break;
-                                } else if (option == 4) {
+                                } else if (option == ActionType.Birthday.getIndex()) {
                                     System.out.print("Set new birthday: ");
                                     String newName = scanner.next();
                                     phonebook.get(id).setBirthday(newName);
                                     System.out.println("The contact was updated successfully!");
                                     ConsoleDisplay.printContact(phonebook.get(id), id);
                                     break;
-                                } else if (option == 0) {
+                                } else if (option == ActionType.EXIT.getIndex()) {
                                     System.out.println("Close Phone Book ;P");
                                     return;
                                 } else {
                                     System.out.println("Please, choose one of the given options");
-                                    System.out.println("1 - Name; 2 - Phone; 3 - Birthday; 0 - EXIT");
-                                }
+                                    System.out.println(String.format("%s - Name; %s - Surname; %s - Phone; %s - Birthday; %s - EXIT",
+                                            ActionType.Name.getIndex(), ActionType.Surname.getIndex(), ActionType.Phone.getIndex(), ActionType.Birthday.getIndex(), ActionType.EXIT.getIndex()));                                }
                             }
                         }
                     }
@@ -126,18 +126,19 @@ public class Runner {
                 }
                 else if (input == ActionType.FIND.getIndex()) {
                     System.out.println("How do you want to find the contact?");
-                    System.out.println("1 - by name; 2 - by first letters; 3 - by last 4 digits of number; 0 - EXIT");
+                    System.out.println(String.format("%s - by name; %s - by first letters; %s - by last 4 digits of number; %s - EXIT",
+                            ActionType.byName.getIndex(), ActionType.byFirstLetters.getIndex(), ActionType.byLastDigitsOfNumber.getIndex(), ActionType.EXIT.getIndex()));
                     if (scanner.hasNextInt()) {
                         int option = scanner.nextInt();
-                        if (option == 1) {
+                        if (option == ActionType.byName.getIndex()) {
                             System.out.print("Enter name: ");
                             String name = scanner.next();
                             ConsoleDisplay.printContacts(phonebook.findByName(name));
-                        } else if (option == 2) {
+                        } else if (option == ActionType.byFirstLetters.getIndex()) {
                             System.out.print("Enter first letters: ");
                             String name = scanner.next();
                             ConsoleDisplay.printContacts(phonebook.findByNameStart(name));
-                        } else if (option == 3) {
+                        } else if (option == ActionType.byLastDigitsOfNumber.getIndex()) {
                             System.out.print("Enter last 4 digits of number: ");
                             String name = scanner.next();
                             while (name.length() != 4) {
@@ -145,7 +146,7 @@ public class Runner {
                                 name = scanner.next();
                             }
                             ConsoleDisplay.printContacts(phonebook.findByPhone(name));
-                        } else if (option == 0) {
+                        } else if (option == ActionType.EXIT.getIndex()) {
                             System.out.println("Close Phone Book ;P");
                             return;
                         }
@@ -158,7 +159,6 @@ public class Runner {
                     ConsoleDisplay.printMenu();
                 }else {
                     System.out.println("You should write number from 0 to 5");
-
                 }
             }else {
                 System.out.println("Please, write the number of option");
