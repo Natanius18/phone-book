@@ -44,8 +44,6 @@ public class Runner {
                             }
                         }
                     }
-                    ConsoleDisplay.printMenu();
-
                 }else if (input == ActionType.UPDATE.getIndex()){
                     if (Phonebook.getAllContact().size()==0) {
                         System.out.println("There are no contacts to update");
@@ -150,6 +148,7 @@ public class Runner {
                             System.out.println("Close Phone Book ;P");
                             return;
                         }
+                        ConsoleDisplay.printMenu();
                     } else {
                         System.out.println("You should write number");
                     }
