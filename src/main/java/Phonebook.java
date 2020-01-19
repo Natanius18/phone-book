@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Phonebook {
-    private ArrayList<Contact> contacts = new ArrayList<>();
+    private static ArrayList<Contact> contacts = new ArrayList<>();
 
 
-    public ArrayList<Contact> getAllContact(){
+    public static ArrayList<Contact> getAllContact(){
         return contacts;
     }
 

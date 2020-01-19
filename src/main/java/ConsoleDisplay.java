@@ -29,16 +29,16 @@ public class ConsoleDisplay {
         System.out.println("_____________________________");
     }
 
-//    public static void printFoundContacts(ArrayList<Contact> contacts){
-//        Phonebook phonebook = new Phonebook();
-//        System.out.println("CONTACTS: ");
-//        if (contacts.size()==0){
-//            System.out.println("No contacts found");
-//        }
-//        for (Contact contact : contacts){
-//            System.out.println("Index: " + phonebook.getAllContact().indexOf(contact));
-//            System.out.println("Name: " + contact.getName());
-//            System.out.println("_____________");
-//        }
-//    }
+    public static void printFoundContacts(ArrayList<Contact> contacts){
+        System.out.println("CONTACTS: ");
+        if (contacts.size()==0){
+            System.out.println("No contacts found");
+        }
+        for (Contact contact : contacts){
+            int index = Phonebook.getAllContact().indexOf(contact) + 1;
+            System.out.println("Index: " + index);
+            System.out.println("Name: " + contact.getName());
+            System.out.println("_____________");
+        }
+    }
 }
