@@ -8,7 +8,7 @@ public class Phonebook {
         return contacts;
     }
 
-    protected void add(Contact contact){
+    public void add(Contact contact){
         contacts.add(contact);
     }
 
@@ -54,4 +54,5 @@ public class Phonebook {
         }
         return result;
     }
+
 }
