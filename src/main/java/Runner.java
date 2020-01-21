@@ -35,8 +35,9 @@ public class Runner {
                         while (true) {
                             if (scanner.hasNextInt()) {
                                 int index = scanner.nextInt();
-                                    phonebook.del(index);
-                                    break;
+                                phonebook.del(index);
+                                ConsoleDisplay.printContacts(Phonebook.getAllContact());
+                                break;
 
                             } else {
                                 System.out.println("Please, write the index");
@@ -152,17 +153,20 @@ public class Runner {
                     } else {
                         System.out.println("You should write number");
                     }
-                }else if (input == ActionType.SAVE.getIndex()){
+                }else if (input == ActionType.SAVE.getIndex()) {
                     FileController.saveToFile(Phonebook.getAllContact());
                     System.out.println("Your contacts were saved successfully!");
                     ConsoleDisplay.printMenu();
+                }else if (input == ActionType.SORT.getIndex()) {
+                        ConsoleDisplay.printContacts(Phonebook.sortContacts());
                 }else {
-                    System.out.println("You should write number from 0 to 5");
+                    System.out.println("You should write number from 0 to 7");
                 }
             }else {
                 System.out.println("Please, write the number of option");
                 scanner.next();
             }
+
         }
     }
 }

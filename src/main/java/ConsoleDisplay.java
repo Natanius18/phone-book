@@ -3,8 +3,8 @@ public class ConsoleDisplay {
     public static void printMenu() {
         System.out.println("PERSONAL PHONE BOOK");
         System.out.println("Select number and press ENTER:");
-        System.out.println(String.format("%s - ADD; %s - DELETE; %s - UPDATE; %s - SHOW; %s - FIND; %S - SAVE, %s - Exit",
-                ActionType.ADD.getIndex(), ActionType.DELETE.getIndex(), ActionType.UPDATE.getIndex(), ActionType.SHOW.getIndex(), ActionType.FIND.getIndex(), ActionType.SAVE.getIndex(), ActionType.EXIT.getIndex()));
+        System.out.println(String.format("%s - ADD; %s - DELETE; %s - UPDATE; %s - SHOW; %s - FIND; %S - SAVE, %s - SORT, %s - Exit",
+                ActionType.ADD.getIndex(), ActionType.DELETE.getIndex(), ActionType.UPDATE.getIndex(), ActionType.SHOW.getIndex(), ActionType.FIND.getIndex(), ActionType.SAVE.getIndex(), ActionType.SORT.getIndex(), ActionType.EXIT.getIndex()));
     }
 
     public static void printContacts(ArrayList<Contact> contacts){

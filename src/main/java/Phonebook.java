@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Phonebook {
     private static ArrayList<Contact> contacts = new ArrayList<>();
@@ -52,5 +54,11 @@ public class Phonebook {
             }
         }
         return result;
+    }
+
+    public static ArrayList<Contact> sortContacts(){
+        ArrayList<Contact> sortedArray = contacts;
+        sortedArray.sort(Comparator.comparing(Contact::getName));
+        return sortedArray;
     }
 }
