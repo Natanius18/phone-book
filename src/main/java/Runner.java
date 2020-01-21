@@ -56,7 +56,7 @@ public class Runner {
                             scanner.next();
                         }
                         int id = scanner.nextInt();
-                        if (Phonebook.getAllContact().size() < id) {
+                        if (Phonebook.getAllContact().size() < id | id == 0) {
                             System.out.println("The contact with index " + id + " doesn't exist!");
                             ConsoleDisplay.printMenu();
                         } else {
@@ -106,6 +106,8 @@ public class Runner {
                                     System.out.println(String.format("%s - Name; %s - Surname; %s - Phone; %s - Birthday; %s - EXIT",
                                             ActionType.Name.getIndex(), ActionType.Surname.getIndex(), ActionType.Phone.getIndex(), ActionType.Birthday.getIndex(), ActionType.EXIT.getIndex()));                                }
                             }
+                            ConsoleDisplay.printMenu();
+
                         }
                     }
                 }else if (input == ActionType.SHOW.getIndex()) {
@@ -158,7 +160,8 @@ public class Runner {
                     System.out.println("Your contacts were saved successfully!");
                     ConsoleDisplay.printMenu();
                 }else if (input == ActionType.SORT.getIndex()) {
-                        ConsoleDisplay.printContacts(Phonebook.sortContacts());
+                    ConsoleDisplay.printContacts(Phonebook.sortContacts());
+                    ConsoleDisplay.printMenu();
                 }else {
                     System.out.println("You should write number from 0 to 7");
                 }

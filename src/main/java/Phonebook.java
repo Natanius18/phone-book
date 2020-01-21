@@ -57,8 +57,7 @@ public class Phonebook {
     }
 
     public static ArrayList<Contact> sortContacts(){
-        ArrayList<Contact> sortedArray = contacts;
-        sortedArray.sort(Comparator.comparing(Contact::getName));
-        return sortedArray;
+        contacts.sort(Comparator.comparing(Contact::getName));
+        return contacts;
     }
 }
