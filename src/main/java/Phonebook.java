@@ -1,9 +1,17 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class Phonebook {
-    private static ArrayList<Contact> contacts = new ArrayList<>();
+    private static ArrayList<Contact> contacts;
+
+    public Phonebook(){
+        this.contacts = new ArrayList<>();
+    }
+
+    public Phonebook(ArrayList<Contact> contacts){
+        this.contacts = contacts;
+    }
+
 
     public static ArrayList<Contact> getAllContact() {
         return contacts;

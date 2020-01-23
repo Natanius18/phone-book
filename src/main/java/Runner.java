@@ -162,6 +162,9 @@ public class Runner {
                 }else if (input == ActionType.SORT.getIndex()) {
                     ConsoleDisplay.printContacts(Phonebook.sortContacts());
                     ConsoleDisplay.printMenu();
+                }else if (input == ActionType.IMPORT.getIndex()) {
+                    phonebook = new Phonebook(FileController.importFromTxt());
+                    ConsoleDisplay.printMenu();
                 }else {
                     System.out.println("You should write number from 0 to 7");
                 }
@@ -169,7 +172,6 @@ public class Runner {
                 System.out.println("Please, write the number of option");
                 scanner.next();
             }
-
         }
     }
 }
