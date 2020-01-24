@@ -41,7 +41,7 @@ import java.util.ArrayList;
             if (data.length == 4){
                 contact = new Contact(data[0], data[1], data[2], data[3]);
             }
-            return null;
+            return contact;
         }
 
     }

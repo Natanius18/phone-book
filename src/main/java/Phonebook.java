@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Phonebook {
-    private static ArrayList<Contact> contacts;
+    private  ArrayList<Contact> contacts;
 
     public Phonebook(){
         this.contacts = new ArrayList<>();
@@ -13,8 +13,8 @@ public class Phonebook {
     }
 
 
-    public static ArrayList<Contact> getAllContact() {
-        return contacts;
+    public ArrayList<Contact> getAllContact() {
+        return this.contacts;
     }
 
     public void add(Contact contact) {
@@ -64,8 +64,8 @@ public class Phonebook {
         return result;
     }
 
-    public static ArrayList<Contact> sortContacts(){
-        contacts.sort(Comparator.comparing(Contact::getName));
-        return contacts;
+    public ArrayList<Contact> sortContacts(){
+        this.contacts.sort(Comparator.comparing(Contact::getName));
+        return this.contacts;
     }
 }

@@ -25,10 +25,10 @@ public class Runner {
 
                     phonebook.add(contact);
                     ConsoleDisplay.printMenu();
-                    ConsoleDisplay.printContacts(Phonebook.getAllContact());
+                    ConsoleDisplay.printContacts(phonebook.getAllContact());
 
                 }else if (input == ActionType.DELETE.getIndex()){
-                    if (Phonebook.getAllContact().size()==0){
+                    if (phonebook.getAllContact().size()==0){
                         System.out.println("There are no contacts to delete!");
                     }else {
                         System.out.println("Write the index of the contact which you want to delete");
@@ -36,7 +36,7 @@ public class Runner {
                             if (scanner.hasNextInt()) {
                                 int index = scanner.nextInt();
                                 phonebook.del(index);
-                                ConsoleDisplay.printContacts(Phonebook.getAllContact());
+                                ConsoleDisplay.printContacts(phonebook.getAllContact());
                                 break;
 
                             } else {
@@ -46,7 +46,7 @@ public class Runner {
                         }
                     }
                 }else if (input == ActionType.UPDATE.getIndex()){
-                    if (Phonebook.getAllContact().size()==0) {
+                    if (phonebook.getAllContact().size()==0) {
                         System.out.println("There are no contacts to update");
                         ConsoleDisplay.printMenu();
                     }else {
@@ -56,7 +56,7 @@ public class Runner {
                             scanner.next();
                         }
                         int id = scanner.nextInt();
-                        if (Phonebook.getAllContact().size() < id | id == 0) {
+                        if (phonebook.getAllContact().size() < id | id == 0) {
                             System.out.println("The contact with index " + id + " doesn't exist!");
                             ConsoleDisplay.printMenu();
                         } else {
@@ -111,12 +111,12 @@ public class Runner {
                         }
                     }
                 }else if (input == ActionType.SHOW.getIndex()) {
-                    if (Phonebook.getAllContact().size() == 0) {
+                    if (phonebook.getAllContact().size() == 0) {
                         System.out.println("There are no contacts to show");
                     } else {
                         System.out.print("Enter id: ");
                         int id = scanner.nextInt();
-                        if (Phonebook.getAllContact().size() < id) {
+                        if (phonebook.getAllContact().size() < id) {
                             System.out.println("The contact with index " + id + " doesn't exist!");
 
                         } else {
@@ -134,11 +134,11 @@ public class Runner {
                         if (option == ActionType.byName.getIndex()) {
                             System.out.print("Enter name: ");
                             String name = scanner.next();
-                            ConsoleDisplay.printFoundContacts(phonebook.findByName(name));
+                            ConsoleDisplay.printFoundContacts(phonebook.findByName(name), phonebook);
                         } else if (option == ActionType.byFirstLetters.getIndex()) {
                             System.out.print("Enter first letters: ");
                             String name = scanner.next();
-                            ConsoleDisplay.printFoundContacts(phonebook.findByNameStart(name));
+                            ConsoleDisplay.printFoundContacts(phonebook.findByNameStart(name), phonebook);
                         } else if (option == ActionType.byLastDigitsOfNumber.getIndex()) {
                             System.out.print("Enter last 4 digits of number: ");
                             String name = scanner.next();
@@ -146,7 +146,7 @@ public class Runner {
                                 System.out.println("You should write 4 digits");
                                 name = scanner.next();
                             }
-                            ConsoleDisplay.printFoundContacts(phonebook.findByPhone(name));
+                            ConsoleDisplay.printFoundContacts(phonebook.findByPhone(name), phonebook);
                         } else if (option == ActionType.EXIT.getIndex()) {
                             System.out.println("Close Phone Book ;P");
                             return;
@@ -156,14 +156,15 @@ public class Runner {
                         System.out.println("You should write number");
                     }
                 }else if (input == ActionType.SAVE.getIndex()) {
-                    FileController.saveToFile(Phonebook.getAllContact());
+                    FileController.saveToFile(phonebook.getAllContact());
                     System.out.println("Your contacts were saved successfully!");
                     ConsoleDisplay.printMenu();
                 }else if (input == ActionType.SORT.getIndex()) {
-                    ConsoleDisplay.printContacts(Phonebook.sortContacts());
+                    ConsoleDisplay.printContacts(phonebook.sortContacts());
                     ConsoleDisplay.printMenu();
                 }else if (input == ActionType.IMPORT.getIndex()) {
                     phonebook = new Phonebook(FileController.importFromTxt());
+                    ConsoleDisplay.printContacts(phonebook.getAllContact());
                     ConsoleDisplay.printMenu();
                 }else {
                     System.out.println("You should write number from 0 to 7");

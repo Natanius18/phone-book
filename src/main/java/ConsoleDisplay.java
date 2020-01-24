@@ -29,13 +29,13 @@ public class ConsoleDisplay {
         System.out.println("_____________________________");
     }
 
-    public static void printFoundContacts(ArrayList<Contact> contacts){
+    public static void printFoundContacts(ArrayList<Contact> contacts, Phonebook phonebook){
         System.out.println("CONTACTS: ");
         if (contacts.size()==0){
             System.out.println("No contacts found");
         }
         for (Contact contact : contacts){
-            int index = Phonebook.getAllContact().indexOf(contact) + 1;
+            int index = phonebook.getAllContact().indexOf(contact) + 1;
             System.out.println("Index: " + index);
             System.out.println("Name: " + contact.getName());
             System.out.println("_____________");
