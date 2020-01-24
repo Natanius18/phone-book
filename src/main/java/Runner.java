@@ -48,7 +48,6 @@ public class Runner {
                 }else if (input == ActionType.UPDATE.getIndex()){
                     if (phonebook.getAllContact().size()==0) {
                         System.out.println("There are no contacts to update");
-                        ConsoleDisplay.printMenu();
                     }else {
                         System.out.print("Enter id of the contact which you want to update: ");
                         while (!scanner.hasNextInt()) {
@@ -58,7 +57,6 @@ public class Runner {
                         int id = scanner.nextInt();
                         if (phonebook.getAllContact().size() < id | id == 0) {
                             System.out.println("The contact with index " + id + " doesn't exist!");
-                            ConsoleDisplay.printMenu();
                         } else {
                             ConsoleDisplay.printContact(phonebook.get(id), id);
                             System.out.println("Which field do you want to change?");
@@ -106,10 +104,10 @@ public class Runner {
                                     System.out.println(String.format("%s - Name; %s - Surname; %s - Phone; %s - Birthday; %s - EXIT",
                                             ActionType.Name.getIndex(), ActionType.Surname.getIndex(), ActionType.Phone.getIndex(), ActionType.Birthday.getIndex(), ActionType.EXIT.getIndex()));                                }
                             }
-                            ConsoleDisplay.printMenu();
 
                         }
                     }
+                    ConsoleDisplay.printMenu();
                 }else if (input == ActionType.SHOW.getIndex()) {
                     if (phonebook.getAllContact().size() == 0) {
                         System.out.println("There are no contacts to show");
